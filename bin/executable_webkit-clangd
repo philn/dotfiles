@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+cd $HOME/WebKit/
+#  --repo=/home/phil/WebKit/Tools/buildstream/repo
+#  --env=WEBKIT_FLATPAK_USER_DIR=$PWD/WebKitBuild/UserFlatpak.Local
+# --env=WEBKIT_OUTPUTDIR=$HOME/WebKit/gst-build-gtk
+#  --env=WEBKIT_OUTPUTDIR=$HOME/WebKit/gst-build-wpe
+exec flatpak-spawn --host Tools/flatpak/webkit-clangd --enable-config --gtk  "$@"

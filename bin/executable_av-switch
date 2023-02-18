@@ -1,0 +1,103 @@
+#!/usr/bin/env python
+
+import aiohttp
+import asyncio
+
+AV_RECEIVER="192.168.1.26"
+SMS="192.168.1.95"
+
+class DenonRemote:
+
+    def __init__(self, address):
+        self.address = address
+
+    @property
+    def enabled(self):
+        return self.address != None
+
+    async def _connect(self):
+        if not self.enabled:
+            fut = asyncio.Future()
+            fut.set_result((None, None))
+            return await fut
+
+        return await asyncio.open_connection(self.address, 23)
+
+    async def send_command(self, cmd, reader, writer):
+        payload = "%s\r" % cmd
+        writer.write(payload.encode('ascii'))
+        await writer.drain()
+        return await reader.readuntil(b'\r')
+
+    async def send_single_command(self, name):
+        reader, writer = await self._connect()
+        result = await self.send_command(name, reader, writer)
+        writer.close()
+        await writer.wait_closed()
+        return result
+
+    async def enable_sms(self):
+        auth = aiohttp.BasicAuth('RPM', 'RPM')
+        async with aiohttp.ClientSession(auth=auth) as session:
+            payload = {'output1.inputsrc': '1', 'cfunc': 'changeavswitch', 'stop': 'true'}
+            async with session.post(f'http://{SMS}/cgi-bin/scweb', data=payload) as resp:
+                print(await resp.text())
+
+    async def toggle_svt(self):
+        fut = asyncio.Future()
+        reader, writer = await self._connect()
+        status = await self.send_command("SI?", reader, writer)
+        if status.startswith(b"SITV"):
+            await self.send_command("SISAT/CBL", reader, writer)
+            src = "RPI"
+        else:
+            await self.send_command("SITV", reader, writer)
+            await self.enable_sms()
+            src = "SMS"
+
+        fut.set_result(src)
+        writer.close()
+        await writer.wait_closed()
+        return await fut
+
+    async def toggle_mute(self):
+        fut = asyncio.Future()
+        reader, writer = await self._connect()
+        status = await self.send_command("MU?", reader, writer)
+        if status.startswith(b"MUON"):
+            await self.send_command("MUOFF", reader, writer)
+            muted = False
+        else:
+            await self.send_command("MUON", reader, writer)
+            muted = True
+
+        fut.set_result(muted)
+        writer.close()
+        await writer.wait_closed()
+        return await fut
+
+    async def volume(self):
+        payload = await self.send_single_command("MV?")
+        return float(payload.strip()[2:])
+
+    async def set_volume(self, volume):
+        await self.send_single_command(f"MV{volume}")
+
+if __name__ == '__main__':
+    import sys
+
+    d = DenonRemote(AV_RECEIVER)
+
+    async def main():
+        if len(sys.argv) > 1:
+            func = getattr(d, sys.argv[1])
+            args = sys.argv[2:]
+        else:
+            cmd = sys.argv[0].split('-')[1]
+            func = getattr(d, f"toggle_{cmd}")
+            args = ()
+        result = await func(*args)
+        if result is not None:
+            print(result)
+
+    asyncio.run(main())

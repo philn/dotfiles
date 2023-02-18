@@ -1,0 +1,87 @@
+[user]
+	email = philn@igalia.com
+	name = Philippe Normand
+	signingkey = 814AB0089155A90597F4EB0ADB1624C7A2F2A94B
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[color.grep]
+        filename = green
+        linenumber = yellow
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = /home/phil/.gitignore_global
+#    pager = delta
+
+#[interactive]
+#    diffFilter = delta --color-only
+
+# [delta]
+#     features = line-numbers decorations
+#     whitespace-error-style = 22 reverse
+
+# [delta "decorations"]
+#     commit-decoration-style = bold yellow box ul
+#     file-style = bold yellow ul
+#     file-decoration-style = none
+
+ [alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log --pretty=oneline --abbrev-commit
+	  pastebinit = !sh -c 'git format-patch -1 --stdout $1 | pastebinit -b paste.debian.net -f diff' -
+#gist = !bash -c 'git format-patch -1 --stdout $1 | gist-paste -p -f ${1:-$(git log | head -n 1 | cut -d\' \' -f2)}.patch' -
+    agrep = grep --break --heading -n
+    pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    mr = !sh -c 'git fetch ${2:-$(git remote |grep ^upstream || echo origin)} merge-requests/$1/head:mr-$1 && git checkout mr-$1' -
+
+# Get the child commit of the current commit.
+# Use $1 instead of 'HEAD' if given. Use $2 instead of curent branch if given.
+child = "!bash -c 'git log --format=%H --reverse --ancestry-path ${1:-HEAD}..${2:\"$(git rev-parse --abbrev-ref HEAD)\"} | head -1' -"
+
+[url "git@github.com:philn/"]
+	insteadof = github:
+[diff]
+  submodule = log
+[push]
+	default = simple
+#[commit]
+#	gpgsign = true
+[magit]
+	hideCampaign = true
+[cinnabar]
+	helper = /var/home/phil/bin/git-cinnabar-helper
+	version-check = 1673788291
+[sendemail]
+	smtpserver = smtp.igalia.com
+	smtpserverport = 465
+	smtpencryption = ssl
+	smtpuser = pnormand
+[credential]
+helper = /var/home/phil/bin/git-credential-libsecret
+[gpg]
+	program = gpg2
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+# [merge]
+# 	conflictStyle = diff3

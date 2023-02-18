@@ -1,0 +1,21 @@
+command_timeout = 20000
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+[git_status]
+# I don't care about untracked files or that there's a stash present.
+untracked = ""
+format = '([\[$conflicted$deleted$renamed$modified$staged$behind\]]($style) )'
+modified = '*'
+
+[python]
+disabled = true
+
+[env_var.GST_ENV]
+format = "in gst-env [$env_value]($style) "
+style = "green bold"
+
+[env_var.WEBKIT_OUTPUTDIR]
+format = "in WebKit [$env_value]($style) "
+style = "red bold"

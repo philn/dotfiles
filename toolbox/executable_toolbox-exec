@@ -1,0 +1,12 @@
+#!/bin/bash
+#set -xe
+p="$(basename -- $0)"
+
+. /etc/os-release
+
+TBN="fedora-toolbox-$VERSION_ID"
+
+# Toolbox has broken stdout/stderr handling.
+#exec toolbox run -r 34 $p "$@"
+podman start $TBN
+exec podman exec -i -u phil $TBN $p "$@"

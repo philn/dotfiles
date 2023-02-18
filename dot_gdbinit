@@ -1,0 +1,18 @@
+add-auto-load-safe-path /var/home/phil/gstreamer/build/gdb-auto-load/
+
+set pagination off
+
+set history save
+set history size 2500
+set history filename ~/.gdb_history
+
+#set use-deprecated-index-sections on
+#set demangle-style none
+
+set debuginfod enabled on
+
+#python
+#import sys
+#sys.path.insert(0, "/home/phil/buildroot/local/WebKit/Tools/gdb/")
+#sys.path.insert(0, "/var/home/phil/WebKit/Tools/gdb/")
+#import webkit

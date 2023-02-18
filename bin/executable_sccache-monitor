@@ -1,0 +1,4 @@
+#!/bin/bash
+#export WEBKIT_FLATPAK_USER_DIR=$HOME/WebKit/WebKitBuild/UserFlatpak.Local
+#export WEBKIT_SCCACHE_SERVER_PORT=10604
+WEBKIT_USE_SCCACHE=1 webkit-flatpak -c watch -d -n 1 sccache -s
