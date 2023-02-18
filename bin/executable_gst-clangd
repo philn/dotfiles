@@ -1,5 +1,7 @@
 #!/bin/bash
 set -x
-flatpak-spawn --host podman start gst-dev-f37
-exec flatpak-spawn --host podman exec -i -u phil gst-dev-f37 clangd "$@"
+. /etc/os-release
+TBN="gst-dev-f$VERSION_ID"
+flatpak-spawn --host podman start $TBN
+exec flatpak-spawn --host podman exec -i -u phil $TBN clangd "$@"
 

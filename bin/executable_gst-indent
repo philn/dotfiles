@@ -1,2 +1,3 @@
 #!/bin/sh
-toolbox run -c gst-dev-f37 $HOME/gstreamer/scripts/gst-indent "$@"
+. /etc/os-release
+toolbox run -c gst-dev-f$VERSION_ID $HOME/gstreamer/scripts/gst-indent "$@"
