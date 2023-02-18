@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Emacs!
+GenericName=Text Editor
+Comment=Edit text
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+# --env=PATH=/var/home/phil/bin:/var/home/phil/bin/rapidjson/:/var/home/phil/.local/bin:/var/home/phil/.cargo/bin:/app/bin:/usr/bin
+Exec=/usr/bin/flatpak run --env=LD_LIBRARY_PATH=$HOME/lib  --filesystem=home:rw --share=network --share=ipc --talk-name=org.freedesktop.Flatpak --branch=stable --arch=x86_64 --command=emacs --file-forwarding org.gnu.emacs @@ %F @@
+Icon=org.gnu.emacs
+Type=Application
+Terminal=false
+Categories=Development;TextEditor;
+StartupWMClass=Emacs
+Keywords=Text;Editor;
+X-Flatpak-RenamedFrom=emacs.desktop;
+X-Flatpak=org.gnu.emacs
