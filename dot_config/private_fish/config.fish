@@ -1,5 +1,9 @@
 starship init fish | source
 
+if status is-interactive
+    atuin init fish | source
+end
+
 # https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#bobthefish
 function fish_right_prompt; end
 set -g theme_use_abbreviated_branch_name yes
