@@ -56,7 +56,6 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      (c-c++ :variables
-            ;;c-c++-backend 'lsp-ccls
             c-c++-backend 'lsp-clangd
             ;;c-c++-lsp-enable-semantic-highlight 'rainbow
             )
@@ -64,10 +63,7 @@ This function should only modify configuration layer settings."
 
      ;; better-defaults
      emacs-lisp
-     ;; git
      ;;helm
-     ;; lsp
-     ;; markdown
      multiple-cursors
      ;; org
      ;; (shell :variables
@@ -609,10 +605,7 @@ before packages are loaded."
   (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
   (add-to-list 'auto-mode-alist '("\\.m\\'" . objc-mode))
 
-  ;;(ccls-args '("--log-file=/home/phil/ccls.log"))
   ;;(flycheck-mode . nil) ;; flycheck interferes too much with autocompletion
-  ;;:pathMappings ("/app/webkit/>/home/phil/WebKit/")
-  ;;:index (:initialBlacklist ("."))
 
   (defun ccls/callee () (interactive) (lsp-ui-peek-find-custom "$ccls/call" '(:callee t)))
   (defun ccls/caller () (interactive) (lsp-ui-peek-find-custom "$ccls/call"))
@@ -646,31 +639,19 @@ before packages are loaded."
 	;;:clang (:pathMappings ("/app/webkit/>/var/home/phil/WebKit/")
   ;;        :extraArgs ("%h -x c++-header"))
 
-  ;;:clang (:extraArgs ("%h -x c++-header"))
-
   (dir-locals-set-class-variables
      'webkit-instance
      '((nil . ((c-basic-offset . 4)
                (indent-tabs-mode . nil)
                (fill-column . 100)
                ;;(c++-mode . ((c-c++-backend . 'lsp-clangd)))
-               ;;(ccls-executable . "webkit-ccls")
                (lsp-clients-clangd-executable . "webkit-clangd")
-                ;; (lsp-clients-clangd-args . ("--enable-config"
-                ;;                             "--gtk"
-                ;;                             ))
                (projectile-project-name . "WebKit")
                (lsp-enable-file-watchers . nil)
                (lsp-ui-peek-find-references nil (list :folders (vector (projectile-project-root))))
                (git-commit-style-convention-checks
                 (remove 'non-empty-second-line git-commit-style-convention-checks))
                ))
-
-       ;; (prog-mode
-       ;;  (ccls-initialization-options . (:compilationDatabaseDirectory "/app/webkit/WebKitBuild/Release"
-       ;;                                                                           :cache (:directory ".ccls-cache")
-       ;;                                                                           ))
-       ;;  )
        )
      )
 
@@ -680,76 +661,21 @@ before packages are loaded."
              (indent-tabs-mode . nil)
              (fill-column . 80)
              (projectile-project-name . "GStreamer")
-             ;;(ccls-executable . "gst-ccls")
              (lsp-clients-clangd-executable . "gst-clangd")
              (lsp-clients-clangd-args . ("--enable-config"
                                          "--compile-commands-dir=/home/phil/gstreamer/build/"
                                          ))
-             ;;(ccls-executable . "ccls.sh")
-             ;;(ccls-executable . "clangd")
              (lsp-enable-file-watchers . nil)
              (lsp-ui-peek-find-references nil (list :folders (vector (projectile-project-root))))
              (with-eval-after-load 'lsp-mode
                (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]build\\'")
-               ;; or
-               ;;(add-to-list 'lsp-file-watch-ignored-files "[/\\\\]\\.my-files\\'"))
                )
              ))
-     ;; (c-c++-mode . ((c-c++-backend . 'lsp-clangd)
-     ;;                ))
-     ;; (prog-mode (lsp-clients-clangd-args . '("--compile-commands-dir=/home/phil/gst-build/build/"))
-     ;;            )
-     ;; (prog-mode (ccls-initialization-options . (:compilationDatabaseDirectory "/var/home/phil/gstreamer/build/"
-     ;;                                            :cache (:directory ".ccls-cache")
-     ;;                                            ))
-     ;;            )
-     ))
-
-  ;; (dir-locals-set-class-variables
-  ;;  'sparkle-cdm-instance
-  ;;  '((nil . ((c-c++ :variables c-c++-enable-clang-format-on-save t)
-  ;;            (projectile-project-name . "Sparkle-CDM")
-  ;;            (ccls-executable . "webkit-ccls")
-  ;;            ;;(ccls-executable . "ccls.sh")
-  ;;            ;;(ccls-executable . "clangd")
-  ;;            (lsp-enable-file-watchers . nil)
-  ;;            (lsp-ui-peek-find-references nil (list :folders (vector (projectile-project-root))))
-  ;;            ))
-  ;;    (prog-mode (ccls-initialization-options . (:compilationDatabaseDirectory "/app/webkit/WebKitBuild/Release"
-  ;;                                                                             :cache (:directory ".ccls-cache")
-	;; 					                                                                  ;;:clang (:pathMappings ("/app/webkit/>/var/home/phil/WebKit/")
-  ;;                                                                             ;;        :extraArgs ("%h -x c++-header"))
-
-  ;;                                                                             ;;:clang (:extraArgs ("%h -x c++-header"))
-  ;;                                                                             ))
-  ;;               )
-  ;;    ))
-
-
-  (dir-locals-set-class-variables
-   'obs-instance
-   '((nil . ((c-c++ :variables c-c++-enable-clang-format-on-save t)
-             (projectile-project-name . "OBS")
-             (ccls-executable . "gst-ccls")
-             ;;(ccls-executable . "clangd")
-             (lsp-enable-file-watchers . nil)
-             (lsp-ui-peek-find-references nil (list :folders (vector (projectile-project-root))))
-             ))
-     (prog-mode (ccls-initialization-options . (:compilationDatabaseDirectory "/var/home/phil/dev/obs-studio/build/"
-                                                                              :cache (:directory ".ccls-cache")
-                                                                              ))
-                )
      ))
 
 
   (dir-locals-set-directory-class
      "/var/home/phil/WebKit/" 'webkit-instance)
-  ;; (dir-locals-set-directory-class
-  ;;  "/var/home/phil/gst-build/subprojects/sparkle-cdm" 'sparkle-cdm-instance)
-  (dir-locals-set-directory-class
-   "/var/home/phil/dev/obs-studio/" 'obs-instance)
-  ;; (dir-locals-set-directory-class
-  ;;  "/var/home/phil/gst-build/subprojects/sparkle-cdm-widevine-blob" 'sparkle-cdm-instance)
   (dir-locals-set-directory-class
    "/var/home/phil/gstreamer/" 'gst-instance)
 
