@@ -2,6 +2,16 @@ starship init fish | source
 
 if status is-interactive
     atuin init fish | source
+    # Auto-start zellij in interactive, non-toolbox shells.
+    if not set -q container
+        # eval (zellij setup --generate-auto-start fish | string collect)
+        if not set -q ZELLIJ
+            zellij attach -c (prompt_hostname)
+            if test "$ZELLIJ_AUTO_EXIT" = "true"
+                kill $fish_pid
+            end
+        end
+    end
 end
 
 # https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#bobthefish
