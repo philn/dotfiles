@@ -1,7 +1,11 @@
 starship init fish | source
 
 if status is-interactive
+
+    set -gx ATUIN_NOBIND "true"
     atuin init fish | source
+    bind \cr _atuin_search
+
     # Auto-start zellij in interactive, non-toolbox shells.
     if not set -q container
         # eval (zellij setup --generate-auto-start fish | string collect)
