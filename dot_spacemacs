@@ -571,7 +571,12 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;;(setq-default lsp-rust-analyzer-server-command "/home/phil/bin/rust-analyzer.sh")
   ;; (setq-default lsp-rust-rls-server-command "/home/phil/bin/rls.sh")
 
-  )
+  (require 'ansi-color)
+  (defun display-ansi-colors ()
+    (interactive)
+    (ansi-color-apply-on-region (point-min) (point-max)))
+
+)
 
 
 (defun dotspacemacs/user-load ()
