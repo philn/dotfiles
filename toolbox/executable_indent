@@ -1,0 +1,5 @@
+#!/bin/sh
+
+p="$(basename -- $0)"
+
+flatpak-spawn --host toolbox run -c gst-dev-f37 $p $@
