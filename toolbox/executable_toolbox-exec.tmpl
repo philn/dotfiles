@@ -2,9 +2,8 @@
 #set -xe
 p="$(basename -- $0)"
 
-. /etc/os-release
 
-TBN="fedora-toolbox-$VERSION_ID"
+TBN="fedora-toolbox-{{- .chezmoi.osRelease.versionID }}"
 
 # Toolbox has broken stdout/stderr handling.
 #exec toolbox run -r 34 $p "$@"
