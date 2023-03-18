@@ -1,5 +1,0 @@
-#!/bin/bash
-set -x
-flatpak-spawn --host podman start gst-dev-f37
-exec flatpak-spawn --host podman exec -i -u phil gst-dev-f37 clangd "$@"
-

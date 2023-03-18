@@ -1,0 +1,6 @@
+#!/bin/sh
+
+p="$(basename -- $0)"
+
+VERSION={{- .chezmoi.osRelease.versionID }}
+flatpak-spawn --host toolbox run -c gst-dev-f${VERSION} $p $@

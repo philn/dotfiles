@@ -1,2 +1,0 @@
-#!/bin/sh
-toolbox run -c gst-dev-f37 $HOME/gstreamer/scripts/gst-indent "$@"
