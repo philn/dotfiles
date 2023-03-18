@@ -2,7 +2,11 @@
 set -gx RUSTUP_HOME $HOME/.rustup
 set -gx CARGO_HOME $HOME/.cargo-home
 
-set PATH $PATH $HOME/bin $HOME/toolbox $HOME/WebKit/Tools/Scripts $HOME/.cargo-home/bin $HOME/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/go/bin $HOME/.local/share/flatpak/exports/bin
+set PATH $PATH $HOME/bin $HOME/WebKit/Tools/Scripts $HOME/.cargo-home/bin $HOME/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/go/bin $HOME/.local/share/flatpak/exports/bin
+
+if not set -q container
+    set PATH $PATH $HOME/toolbox
+end
 
 #set -gx EDITOR "org.gnu.emacs -nw"
 set -gx EDITOR "jed"
