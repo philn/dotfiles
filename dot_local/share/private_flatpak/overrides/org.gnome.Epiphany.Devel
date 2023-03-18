@@ -1,0 +1,3 @@
+[Environment]
+GST_PLUGIN_FEATURE_RANK=vah264dec:MAX,vah265dec:MAX,vavp8dec:MAX,vavp9dec:MAX
+WEBKIT_GST_DMABUF_SINK_ENABLED=1
