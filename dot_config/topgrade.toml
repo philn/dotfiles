@@ -1,8 +1,8 @@
 # Don't ask for confirmations
-#assume_yes = true
+assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-disable = ["toolbx"]
+disable = ["toolbx", "tmux"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -45,7 +45,7 @@ disable = ["toolbx"]
 #skip_notify = true
 
 # Skip the preamble displayed when topgrade is run
-#display_preamble = false
+display_preamble = false
 
 [git]
 #max_concurrency = 5
