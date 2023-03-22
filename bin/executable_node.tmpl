@@ -1,0 +1,5 @@
+#!/bin/bash
+TBN="fedora-toolbox-{{- .chezmoi.osRelease.versionID }}"
+flatpak-spawn --host podman start $TBN
+exec flatpak-spawn --host podman exec -i -u phil $TBN node "$@"
+
