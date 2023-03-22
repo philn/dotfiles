@@ -11,6 +11,8 @@ if status is-interactive
     atuin init fish | source
     bind \cr _atuin_search
 
+    bind \cl 'wipe --duration 1200; commandline -f repaint'
+
     # Auto-start zellij in interactive, non-toolbox shells.
     if not set -q container
         # eval (zellij setup --generate-auto-start fish | string collect)
