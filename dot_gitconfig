@@ -26,17 +26,19 @@
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = /home/phil/.gitignore_global
-    pager = delta
+#    pager = delta
 
-[interactive]
-    diffFilter = delta --color-only
+#[interactive]
+#    diffFilter = delta --color-only
 
-[delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+# [delta]
+#     features = line-numbers decorations
+#     whitespace-error-style = 22 reverse
 
-[merge]
- 	conflictStyle = diff3
+# [delta "decorations"]
+#     commit-decoration-style = bold yellow box ul
+#     file-style = bold yellow ul
+#     file-decoration-style = none
 
  [alias]
     st = status
@@ -59,7 +61,6 @@ child = "!bash -c 'git log --format=%H --reverse --ancestry-path ${1:-HEAD}..${2
 	insteadof = github:
 [diff]
   submodule = log
-  colorMoved = default
 [push]
 	default = simple
 #[commit]
@@ -82,3 +83,5 @@ helper = /var/home/phil/bin/git-credential-libsecret
 	rebase = true
 [init]
 	defaultBranch = main
+# [merge]
+# 	conflictStyle = diff3
