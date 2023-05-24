@@ -44,7 +44,7 @@ This function should only modify configuration layer settings."
      graphviz
      systemd
      shell-scripts
-     lsp
+     (lsp :variables lsp-rust-server 'rust-analyzer)
      yaml
      rust
      markdown
@@ -571,8 +571,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq lsp-disabled-clients '(rls bash-ls))
   (setq lsp-rust-server 'rust-analyzer)
   (setq lsp-lens-enable nil)
-  ;;(setq-default lsp-rust-analyzer-server-command "/home/phil/bin/rust-analyzer.sh")
-  ;; (setq-default lsp-rust-rls-server-command "/home/phil/bin/rls.sh")
+  (setq-default lsp-rust-analyzer-server-command ("/home/phil/bin/rust-analyzer.sh"))
 
   (require 'ansi-color)
   (defun display-ansi-colors ()
