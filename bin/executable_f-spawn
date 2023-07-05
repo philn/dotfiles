@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ -z "${container}" ]]; then
+  exec "$@"
+else
+  exec flatpak-spawn --host "$@"
+fi
