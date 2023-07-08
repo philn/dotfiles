@@ -8,9 +8,8 @@ if not set -q container
     set PATH $PATH $HOME/toolbox
 end
 
-#set -gx EDITOR "org.gnu.emacs -nw"
-set -gx EDITOR "f-spawn flatpak enter org.gnu.emacs flatpak-spawn --directory=\"\$PWD\" emacsclient"
-#set -gx ALTERNATE_EDITOR "jed"
+set -gx EDITOR "jed"
+set -gx VISUAL "f-spawn flatpak enter org.gnu.emacs flatpak-spawn --directory=\"\$PWD\" emacsclient"
 
 set -gx GST_INSPECT_NO_COLORS 1
 
