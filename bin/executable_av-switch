@@ -5,6 +5,7 @@ import asyncio
 
 AV_RECEIVER="192.168.1.26"
 SMS="192.168.1.95"
+HOST="192.168.1.12"
 
 class DenonRemote:
 
@@ -43,6 +44,15 @@ class DenonRemote:
             async with session.post(f'http://{SMS}/cgi-bin/scweb', data=payload) as resp:
                 print(await resp.text())
 
+
+    async def enable_host(self):
+        auth = aiohttp.BasicAuth('RPM', 'RPM')
+        async with aiohttp.ClientSession(auth=auth) as session:
+            payload = {'output2.inputsrc': '3', 'cfunc': 'changeavswitch', 'stop': 'true'}
+            async with session.post(f'http://{HOST}/cgi-bin/scweb', data=payload) as resp:
+                print(await resp.text())
+
+
     async def toggle_svt(self):
         fut = asyncio.Future()
         reader, writer = await self._connect()
@@ -59,6 +69,9 @@ class DenonRemote:
         writer.close()
         await writer.wait_closed()
         return await fut
+
+    async def toggle_host(self):
+        return await self.enable_host()
 
     async def toggle_mute(self):
         fut = asyncio.Future()
