@@ -1,0 +1,19 @@
+
+export CC=clang
+export CXX=clang++
+
+export WEBKIT_HOME=$HOME/WebKit
+
+if [[ -z "$container" ]]; then
+   echo "Running from Buildstream SDK"
+else
+   export SCCACHE_CONF=/sccache/sccache.toml
+   export RUSTC_WRAPPER=/usr/local/cargo/bin/sccache
+fi
+
+export WEBKIT_USE_SCCACHE=1
+export SCCACHE_NUM_CPUS=45
+
+export EXTRA_BUILD_WEBKIT_ARGS="--cmakeargs=-DENABLE_DOCUMENTATION=OFF --cmakeargs=-DENABLE_INTROSPECTION=OFF --cmakeargs=-DENABLE_COG=ON"
+
+export NUMBER_OF_PROCESSORS=$(expr $(nproc --all) / 2)
