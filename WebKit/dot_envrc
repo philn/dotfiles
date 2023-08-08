@@ -1,6 +1,7 @@
 
 export CC=clang
 export CXX=clang++
+export LDFLAGS=-fuse-ld=mold
 
 export WEBKIT_HOME=$HOME/WebKit
 
@@ -8,7 +9,8 @@ if [[ -z "$container" ]]; then
    echo "Running from Buildstream SDK"
 else
    export SCCACHE_CONF=/sccache/sccache.toml
-   export RUSTC_WRAPPER=/usr/local/cargo/bin/sccache
+   # https://github.com/mozilla/sccache/issues/1838
+   # export RUSTC_WRAPPER=/usr/local/cargo/bin/sccache
 fi
 
 export WEBKIT_USE_SCCACHE=1
