@@ -602,7 +602,7 @@ before packages are loaded."
 
   (require 'doom-themes)
   (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'frappe) ;; or 'latte, 'macchiato, or 'mocha
+  (setq catppuccin-flavor 'macchiato) ;; or 'latte, 'frappe, or 'mocha
   (catppuccin-reload)
 
   (setq rust-format-on-save t)
