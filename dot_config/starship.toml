@@ -54,9 +54,9 @@ format = "[$virtualenv]($style) "
 style = "bright-black"
 
 [env_var.GST_ENV]
-format = "in gst-env [$env_value]($style)"
+format = "in gst-env [$env_value]($style) "
 style = "green bold"
 
 [env_var.WEBKIT_OUTPUTDIR]
-format = "in WebKit [$env_value]($style)"
+format = "in WebKit [$env_value]($style) "
 style = "red bold"
