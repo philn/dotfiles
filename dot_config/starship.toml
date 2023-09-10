@@ -11,6 +11,8 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+${env_var.GST_ENV}\
+${env_var.WEBKIT_OUTPUTDIR}\
 $cmd_duration\
 $python\
 $character"""
@@ -52,9 +54,9 @@ format = "[$virtualenv]($style) "
 style = "bright-black"
 
 [env_var.GST_ENV]
-format = "in gst-env [$env_value]($style) "
+format = "in gst-env [$env_value]($style)"
 style = "green bold"
 
 [env_var.WEBKIT_OUTPUTDIR]
-format = "in WebKit [$env_value]($style) "
+format = "in WebKit [$env_value]($style)"
 style = "red bold"
