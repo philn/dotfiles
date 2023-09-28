@@ -1,5 +1,0 @@
-#!/bin/sh
-set -eu
-flatpak-spawn --host podman start wk-dev-f38
-exec flatpak-spawn --host podman exec -e WEBKIT_HOME=$HOME/WebKit -i -u phil wk-dev-f38 webkit-clangd --enable-config --gtk "$@"
-
