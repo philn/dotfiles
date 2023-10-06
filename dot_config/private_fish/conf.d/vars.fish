@@ -26,5 +26,5 @@ gpgconf --launch gpg-agent
 eval (ssh-agent -c) > /dev/null
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 
-alias ls="exa"
-alias df="lfs"
+alias ls="eza"
+alias df="dysk"
