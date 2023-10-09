@@ -1,0 +1,2 @@
+#!/bin/sh
+f-spawn flatpak run org.freedesktop.GstDebugViewer $@
