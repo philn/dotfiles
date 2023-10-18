@@ -15,12 +15,12 @@ set -gx GST_INSPECT_NO_COLORS 1
 
 set -gx DEBUGINFOD_URLS https://debuginfod.fedoraproject.org/
 
+set -gx HOMEBREW_NO_ANALYTICS 1
+
 # eval (pipenv --completion)
 
 #set -e SSH_AGENT_PID # unset
 #fenv source '$HOME/ssh_gpg_support.sh'
-
-direnv hook fish | source
 
 gpgconf --launch gpg-agent
 eval (ssh-agent -c) > /dev/null

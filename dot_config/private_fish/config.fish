@@ -13,8 +13,8 @@ if status is-interactive
 
     bind \cl 'wipe --duration 1200; commandline -f repaint'
 
-    # Auto-start zellij in interactive, non-toolbox shells.
     if not set -q container
+        # Auto-start zellij in interactive, non-toolbox shells.
         # eval (zellij setup --generate-auto-start fish | string collect)
         if not set -q ZELLIJ
             zellij attach -c (prompt_hostname)
@@ -22,8 +22,12 @@ if status is-interactive
                 kill $fish_pid
             end
         end
+
+        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     end
 end
+
+direnv hook fish | source
 
 # https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#bobthefish
 function fish_right_prompt; end
