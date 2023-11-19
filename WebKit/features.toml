@@ -3,7 +3,7 @@ enable_documentation = false
 enable_introspection = false
 
 [gtk]
-enable_gtk4 = false
+use_gtk4 = false
 
 [wpe]
 enable_cog = true
