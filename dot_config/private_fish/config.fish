@@ -13,21 +13,14 @@ if status is-interactive
 
     bind \cl 'wipe --duration 1200; commandline -f repaint'
 
+    # Brew likely won't work in containers.
     if not set -q container
-        # Auto-start zellij in interactive, non-toolbox shells.
-        # eval (zellij setup --generate-auto-start fish | string collect)
-        if not set -q ZELLIJ
-            zellij attach -c (prompt_hostname)
-            if test "$ZELLIJ_AUTO_EXIT" = "true"
-                kill $fish_pid
-            end
-        end
-
         eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     end
+
+    direnv hook fish | source
 end
 
-direnv hook fish | source
 
 # https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#bobthefish
 function fish_right_prompt; end
