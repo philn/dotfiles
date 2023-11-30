@@ -15,8 +15,8 @@ fi
 
 export WEBKIT_USE_SCCACHE=1
 export SCCACHE_NUM_CPUS=45
-# New in 0.7.0:
-export SCCACHE_DIRECT=true
+# New in 0.7.0: Disable, looks a bit buggy.
+export SCCACHE_DIRECT=false
 
 export NUMBER_OF_PROCESSORS=$(expr $(nproc --all) / 2)
 
