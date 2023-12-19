@@ -91,7 +91,12 @@ class DenonRemote:
 
     async def volume(self):
         payload = await self.send_single_command("MV?")
-        return float(payload.strip()[2:])
+        str_value = payload.strip()[2:]
+        if len(str_value) == 3:
+            fp_value = str_value[:2] + b'.' + str_value[2:]
+            str_value = fp_value
+
+        return float(str_value)
 
     async def set_volume(self, volume):
         await self.send_single_command(f"MV{volume}")
