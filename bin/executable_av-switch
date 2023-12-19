@@ -1,83 +1,15 @@
 #!/usr/bin/env python3
 
-import aiohttp
 import asyncio
+import os
+import sys
+sys.path.insert(0, os.path.expanduser("~/dev/CocoRicoFM"))
+
+from cocoricofm import denon
 
 AV_RECEIVER="192.168.1.26"
 
-class DenonRemote:
-
-    def __init__(self, address):
-        self.address = address
-
-    @property
-    def enabled(self):
-        return self.address != None
-
-    async def _connect(self):
-        if not self.enabled:
-            fut = asyncio.Future()
-            fut.set_result((None, None))
-            return await fut
-
-        return await asyncio.open_connection(self.address, 23)
-
-    async def send_command(self, cmd, reader, writer):
-        payload = "%s\r" % cmd
-        writer.write(payload.encode('ascii'))
-        await writer.drain()
-        return await reader.readuntil(b'\r')
-
-    async def send_single_command(self, name):
-        reader, writer = await self._connect()
-        result = await self.send_command(name, reader, writer)
-        writer.close()
-        await writer.wait_closed()
-        return result
-
-    async def toggle_mute(self):
-        fut = asyncio.Future()
-        reader, writer = await self._connect()
-        status = await self.send_command("MU?", reader, writer)
-        if status.startswith(b"MUON"):
-            await self.send_command("MUOFF", reader, writer)
-            muted = False
-        else:
-            await self.send_command("MUON", reader, writer)
-            muted = True
-
-        fut.set_result(muted)
-        writer.close()
-        await writer.wait_closed()
-        return await fut
-
-    async def volume(self):
-        payload = await self.send_single_command("MV?")
-        str_value = payload.strip()[2:]
-        if len(str_value) == 3:
-            fp_value = str_value[:2] + b'.' + str_value[2:]
-            str_value = fp_value
-
-        return float(str_value)
-
-    async def set_volume(self, volume):
-        await self.send_single_command(f"MV{volume}")
-
 if __name__ == '__main__':
-    import sys
-
-    d = DenonRemote(AV_RECEIVER)
-
-    async def main():
-        if len(sys.argv) > 1:
-            func = getattr(d, sys.argv[1])
-            args = sys.argv[2:]
-        else:
-            cmd = sys.argv[0].split('-')[1]
-            func = getattr(d, f"toggle_{cmd}")
-            args = ()
-        result = await func(*args)
-        if result is not None:
-            print(result)
-
-    asyncio.run(main())
+    enable_sonos = True
+    d = denon.DenonRemote(AV_RECEIVER, enable_sonos)
+    asyncio.run(d.run(sys.argv))
