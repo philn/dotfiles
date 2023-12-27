@@ -17,6 +17,8 @@ set -gx DEBUGINFOD_URLS https://debuginfod.fedoraproject.org/
 
 set -gx HOMEBREW_NO_ANALYTICS 1
 
+set -gx WAYLAND_DISPLAY wayland-0
+
 # eval (pipenv --completion)
 
 #set -e SSH_AGENT_PID # unset
