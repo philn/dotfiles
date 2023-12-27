@@ -2,8 +2,11 @@ starship init fish | source
 
 if status is-interactive
 
-    # BlackBox doesn't set WAYLAND_DISPLAY, preventing pass -c to work.
+    # BlackBox and Prompt don't set WAYLAND_DISPLAY, preventing pass -c to work.
     if set -q TERM_PROGRAM
+        set -gx WAYLAND_DISPLAY "wayland-0"
+    end
+    if set -q PROMPT_PROFILE
         set -gx WAYLAND_DISPLAY "wayland-0"
     end
 
