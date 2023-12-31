@@ -4,7 +4,7 @@ default-profile-uuid='144f16bf0b116392e394a446657d559a'
 interface-style='dark'
 use-system-font=false
 font-name='Source Code Pro Semi-Bold 11'
-window-size=(212, 47)
+restore-window-size=false
 
 [org/gnome/Prompt/Devel/Profiles/144f16bf0b116392e394a446657d559a]
 palette='dracula'
