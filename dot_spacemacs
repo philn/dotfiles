@@ -569,7 +569,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;;                                    (lsp-rust-analyzer-inlay-hints-mode))))
 
   ;; (setq lsp-rust-analyzer-server-display-inlay-hints t)
-  (setq lsp-disabled-clients '(rls bash-ls))
+  (setq lsp-disabled-clients '(rls bash-ls eslint mspyls pyright ts-ls jsts-ls graphql-lsp vue-semantic-server))
   (setq lsp-rust-server 'rust-analyzer)
   (setq lsp-lens-enable nil)
   (setq-default lsp-rust-analyzer-server-command ("/home/phil/bin/rust-analyzer.sh"))
