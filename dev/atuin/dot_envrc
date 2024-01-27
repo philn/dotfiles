@@ -1,0 +1,3 @@
+export ATUIN_DB_PATH=/tmp/atuin_dev.db
+export ATUIN_RECORD_STORE_PATH=/tmp/atuin_records.db
+export PATH="./target/release:$PATH"
