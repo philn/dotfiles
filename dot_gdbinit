@@ -11,8 +11,7 @@ set history filename ~/.gdb_history
 
 set debuginfod enabled on
 
-#python
-#import sys
-#sys.path.insert(0, "/home/phil/buildroot/local/WebKit/Tools/gdb/")
-#sys.path.insert(0, "/var/home/phil/WebKit/Tools/gdb/")
-#import webkit
+python
+import sys
+sys.path.insert(0, "/var/home/phil/WebKit/Tools/gdb/")
+import webkit
