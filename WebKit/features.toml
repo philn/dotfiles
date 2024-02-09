@@ -1,6 +1,8 @@
 [common]
 enable_documentation = false
 enable_introspection = false
+enable_journald_log = false
+enable_release_log = true
 
 [gtk]
 use_gtk4 = false
