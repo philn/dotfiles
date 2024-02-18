@@ -1,13 +1,10 @@
-[org/gnome/Prompt/Devel]
-profile-uuids=['144f16bf0b116392e394a446657d559a']
-default-profile-uuid='144f16bf0b116392e394a446657d559a'
+[org/gnome/Ptyxis/Devel]
+profile-uuids=['c5dd05f2194cf99130b7551165d25fa3']
+default-profile-uuid='c5dd05f2194cf99130b7551165d25fa3'
 interface-style='dark'
 use-system-font=false
 font-name='Source Code Pro Semi-Bold 11'
 restore-window-size=false
-
-[org/gnome/Prompt/Devel/Profiles/144f16bf0b116392e394a446657d559a]
-palette='dracula'
 
 [org/gnome/Prompt/Devel/Shortcuts]
 focus-tab-1='<Alt>exclam'
@@ -16,3 +13,6 @@ focus-tab-3='<Alt>sterling'
 focus-tab-4='<Alt>dollar'
 tab-overview='<Alt>t'
 primary-menu='F9'
+
+[org/gnome/Ptyxis/Devel/Profiles/c5dd05f2194cf99130b7551165d25fa3]
+palette='dracula'
