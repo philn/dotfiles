@@ -6,13 +6,13 @@ use-system-font=false
 font-name='Source Code Pro Semi-Bold 11'
 restore-window-size=false
 
-[org/gnome/Prompt/Devel/Shortcuts]
+[org/gnome/Ptyxis/Devel/Profiles/c5dd05f2194cf99130b7551165d25fa3]
+palette='dracula'
+
+[org/gnome/Ptyxis/Devel/Shortcuts]
 focus-tab-1='<Alt>exclam'
 focus-tab-2='<Alt>quotedbl'
 focus-tab-3='<Alt>sterling'
 focus-tab-4='<Alt>dollar'
 tab-overview='<Alt>t'
 primary-menu='F9'
-
-[org/gnome/Ptyxis/Devel/Profiles/c5dd05f2194cf99130b7551165d25fa3]
-palette='dracula'
