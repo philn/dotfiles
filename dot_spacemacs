@@ -58,6 +58,8 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t)
      (c-c++ :variables
             c-c++-backend 'lsp-clangd
+            clang-format-executable "/home/linuxbrew/.linuxbrew/opt/clang-format/bin/clang-format"
+            c-c++-enable-clang-format-on-save t
             ;;c-c++-lsp-enable-semantic-highlight 'rainbow
             )
      javascript
@@ -659,7 +661,6 @@ before packages are loaded."
      '((nil . ((c-basic-offset . 4)
                (indent-tabs-mode . nil)
                (fill-column . 100)
-               ;;(c++-mode . ((c-c++-backend . 'lsp-clangd)))
                (lsp-clients-clangd-executable . "webkit-clangd")
                (projectile-project-name . "WebKit")
                (lsp-enable-file-watchers . nil)

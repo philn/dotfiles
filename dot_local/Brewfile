@@ -2,6 +2,7 @@ brew "glibc"
 brew "gcc"
 
 brew "btop"
+brew "clang-format"
 brew "cmake"
 brew "direnv"
 brew "git-lfs"
