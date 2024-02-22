@@ -6,7 +6,7 @@ if status is-interactive
     if set -q TERM_PROGRAM
         set -gx WAYLAND_DISPLAY "wayland-0"
     end
-    if set -q PROMPT_PROFILE
+    if set -q PTYXIS_PROFILE
         set -gx WAYLAND_DISPLAY "wayland-0"
     end
 
