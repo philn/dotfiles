@@ -99,6 +99,7 @@ This function should only modify configuration layer settings."
                                                           :fetcher github
                                                           :repo "zerolfx/copilot.el"
                                                           :files ("*.el" "dist")))
+                                      just-mode
                                       catppuccin-theme)
 
    ;; A list of packages that cannot be updated.
