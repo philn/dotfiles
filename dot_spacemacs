@@ -59,7 +59,6 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-backend 'lsp-clangd
             clang-format-executable "/home/linuxbrew/.linuxbrew/opt/clang-format/bin/clang-format"
-            c-c++-enable-clang-format-on-save t
             ;;c-c++-lsp-enable-semantic-highlight 'rainbow
             )
      javascript
@@ -765,7 +764,6 @@ This function is called at the very end of Spacemacs initialization."
      (ccls-executable . "gst-ccls")
      (ccls-executable . "ccls.sh")
      (projectile-project-name . "OBS")
-     (c-c++ :variables c-c++-enable-clang-format-on-save t)
      (ccls-initialization-options :compilationDatabaseDirectory "/app/webkit/WebKitBuild/Release" :cache
                                   (:directory ".ccls-cache"))
      (projectile-project-name . "GStreamer")
