@@ -641,9 +641,8 @@ before packages are loaded."
   (setq catppuccin-flavor 'macchiato) ;; or 'latte, 'frappe, or 'mocha
   (catppuccin-reload)
 
-  (setq rust-format-on-save t)
+  (setq rustic-format-on-save t)
   (setq rust-rustfmt-bin "/home/phil/.cargo-home/bin/rustfmt")
-  ;;(setq racer-rust-src-path "/home/phil/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src")
 
   (global-undo-tree-mode 0)
   
