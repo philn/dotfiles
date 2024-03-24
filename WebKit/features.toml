@@ -1,6 +1,7 @@
 [common]
 enable_documentation = false
 enable_introspection = false
+developer_mode_fatal_warnings = false
 
 [gtk]
 use_gtk4 = false
