@@ -37,3 +37,6 @@
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
 # exit_mode = "return-original"
+
+[stats]
+common_prefix = [ "env" ]
