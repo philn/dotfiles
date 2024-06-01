@@ -67,9 +67,6 @@ child = "!bash -c 'git log --format=%H --reverse --ancestry-path ${1:-HEAD}..${2
 #	gpgsign = true
 [magit]
 	hideCampaign = true
-[cinnabar]
-	helper = /var/home/phil/bin/git-cinnabar-helper
-	version-check = 1673788291
 [sendemail]
 	smtpserver = smtp.igalia.com
 	smtpserverport = 465
