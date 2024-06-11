@@ -1,15 +1,16 @@
-[org/gnome/Ptyxis/Devel]
-profile-uuids=['c5dd05f2194cf99130b7551165d25fa3']
-default-profile-uuid='c5dd05f2194cf99130b7551165d25fa3'
+[org/gnome/Ptyxis]
+profile-uuids=['49bee605dac37fcb5db8bee066682f95']
+default-profile-uuid='49bee605dac37fcb5db8bee066682f95'
+window-size=(237, 54)
 interface-style='dark'
 use-system-font=false
 font-name='Source Code Pro Semi-Bold 11'
 restore-window-size=false
 
-[org/gnome/Ptyxis/Devel/Profiles/c5dd05f2194cf99130b7551165d25fa3]
+[org/gnome/Ptyxis/Profiles/49bee605dac37fcb5db8bee066682f95]
 palette='dracula'
 
-[org/gnome/Ptyxis/Devel/Shortcuts]
+[org/gnome/Ptyxis/Shortcuts]
 focus-tab-1='<Alt>exclam'
 focus-tab-2='<Alt>quotedbl'
 focus-tab-3='<Alt>sterling'
