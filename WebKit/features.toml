@@ -8,3 +8,4 @@ use_gtk4 = false
 
 [wpe]
 enable_cog = true
+enable_wpe_qt_api = false
