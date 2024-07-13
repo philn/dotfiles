@@ -6,7 +6,7 @@ if not set -q container
     set PATH $HOME/toolbox
 end
 
-set PATH $PATH $HOME/bin $HOME/WebKit/Tools/Scripts $HOME/.cargo-home/bin $HOME/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/go/bin $HOME/.local/share/flatpak/exports/bin
+set PATH $PATH $HOME/bin $HOME/.cargo-home/bin $HOME/.local/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/go/bin $HOME/.local/share/flatpak/exports/bin $HOME/WebKit/Tools/Scripts
 
 set -gx EDITOR "jed"
 set -gx VISUAL "f-spawn flatpak enter org.gnu.emacs flatpak-spawn --directory=\"\$PWD\" emacsclient"
