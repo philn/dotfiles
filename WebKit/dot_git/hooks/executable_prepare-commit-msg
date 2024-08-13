@@ -25,7 +25,7 @@ def message(source=None, sha=None):
     try:
         for line in subprocess.check_output(
             [os.path.expanduser('~/WebKit/Tools/Scripts/prepare-ChangeLog'), '--no-write', '--delimiters', '--git-index'] + extra_args,
-            **(dict(encoding='utf-8') if sys.version_info > (3, 0) else dict())
+            **(dict(encoding='utf-8'))
         ).splitlines():
             if line == '~':
                 dirname = None
@@ -54,7 +54,7 @@ def main(file_name=None, source=None, sha=None):
         if sha:
             commit_message_file.write(subprocess.check_output(
                 ['/usr/bin/git', 'log', 'HEAD', '-1', '--pretty=format:%B'],
-                **(dict(encoding='utf-8') if sys.version_info > (3, 5) else dict())
+                **(dict(encoding='utf-8'))
             ))
         else:
             commit_message_file.write(message(source=source, sha=sha))
@@ -70,7 +70,7 @@ def main(file_name=None, source=None, sha=None):
             commit_message_file.write('\n')
         for line in subprocess.check_output(
             ['/usr/bin/git', 'status'],
-            **(dict(encoding='utf-8') if sys.version_info > (3, 5) else dict())
+            **(dict(encoding='utf-8'))
         ).splitlines():
             commit_message_file.write('# {}\n'.format(line))
 
