@@ -1,10 +1,12 @@
 If:
     PathMatch: [.*\.h]
+    PathExclude: [.*/ThirdParty/.*]
 CompileFlags:
     Add: [-xobjective-c++, --include=config.h, -std=c++2a]
 ---
 If:
     PathMatch: [.*\.cpp]
+    PathExclude: [.*/ThirdParty/.*]
 CompileFlags:
     Add: [--include=config.h]
 ---
