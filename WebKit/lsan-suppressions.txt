@@ -1,0 +1,10 @@
+leak:libfontconfig
+leak:WebCore::CSSPropertyParser
+leak:WebCore::CSSVariableParser
+leak:WebCore::PlatformDisplayGBM::create
+leak:WebCore::SoupNetworkSession::setHSTSPersistentStorage
+leak:JSC::JIT
+leak:JSC::reifyStaticProperties
+leak:WebKit::WebProcessMainGtk::WebProcessMainGtk
+leak:WebKit::NetworkProcessMainSoup::NetworkProcessMainSoup
+leak:SkImages::RasterFromPixmap
