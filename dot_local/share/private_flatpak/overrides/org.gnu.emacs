@@ -1,5 +1,5 @@
 [Context]
-sockets=pcsc;ssh-auth;session-bus;wayland
+sockets=gpg-agent;pcsc;ssh-auth;session-bus;wayland
 devices=all;shm
 filesystems=home
 

@@ -87,3 +87,9 @@ helper = /var/home/phil/bin/git-credential-libsecret
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[github]
+	user = philn
+[gitlab]
+	user = philn
+[gitlab "gitlab.freedesktop.org/api/v4"]
+	user = philn

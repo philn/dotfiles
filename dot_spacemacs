@@ -99,6 +99,9 @@ This function should only modify configuration layer settings."
                                                           :repo "zerolfx/copilot.el"
                                                           :files ("*.el" "dist")))
                                       just-mode
+                                      (pinentry :defer nil
+                                                :straight t
+                                                :config (pinentry-start))
                                       catppuccin-theme)
 
    ;; A list of packages that cannot be updated.
@@ -704,6 +707,18 @@ before packages are loaded."
   (put 'kill-ring 'history-length 10)
   ;; (savehist-mode -1)
 
+  ;; Set the files that are searched for writing tokens
+  ;; by default ~/.authinfo will be used
+  (setq auth-sources '("~/.authinfo.gpg"))
+
+  (setq epg-pinentry-mode 'loopback)
+
+  (with-eval-after-load 'forge
+    (add-to-list 'forge-alist
+                 '("gitlab.freedesktop.org"
+                   "gitlab.freedesktop.org/api/v4"
+                   "gitlab.freedesktop.org"
+                   forge-gitlab-repository)))
   )
 
 
