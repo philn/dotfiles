@@ -13,6 +13,7 @@ $git_state\
 $git_status\
 ${env_var.GST_ENV}\
 ${env_var.WEBKIT_OUTPUTDIR}\
+${env_var.FISH_PRIVATE_MODE}\
 $cmd_duration\
 $python\
 $character"""
@@ -60,3 +61,6 @@ style = "green bold"
 [env_var.WEBKIT_OUTPUTDIR]
 format = "in WebKit [$env_value]($style) "
 style = "red bold"
+
+[env_var.FISH_PRIVATE_MODE]
+format = "🥸"

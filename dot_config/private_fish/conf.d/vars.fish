@@ -17,6 +17,9 @@ set -gx DEBUGINFOD_URLS https://debuginfod.fedoraproject.org/
 
 set -gx HOMEBREW_NO_ANALYTICS 1
 
+if set -q fish_private_mode
+    set -gx FISH_PRIVATE_MODE 1
+end
 # eval (pipenv --completion)
 
 #set -e SSH_AGENT_PID # unset
