@@ -22,8 +22,5 @@ export NUMBER_OF_PROCESSORS=$(expr $(nproc --all) / 2)
 
 export SCCACHE_REDIS={{ pass "shell/webkit-redis" }}
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 export LSAN_OPTIONS=suppressions=lsan-suppressions.txt
