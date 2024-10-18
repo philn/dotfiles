@@ -31,3 +31,5 @@ set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 
 alias ls="eza"
 alias df="dysk"
+
+zoxide init fish | source

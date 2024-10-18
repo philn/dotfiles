@@ -44,3 +44,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:
 SETUVAR fish_pager_color_selected_description:
 SETUVAR fish_pager_color_selected_prefix:
+SETUVAR fish_user_paths:/var/home/phil/\x2elocal/bin

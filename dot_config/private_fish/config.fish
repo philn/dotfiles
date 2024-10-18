@@ -22,6 +22,10 @@ if status is-interactive
     end
 
     direnv hook fish | source
+
+    fish_add_path ~/.local/bin/
+    zoxide init --cmd cd fish | source
+
 end
 
 
