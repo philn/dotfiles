@@ -6,6 +6,7 @@ clangd_auto_setup = false
 enable_sanitizers = ["address"]
 enable_javascript_shell = false
 use_system_sysprof_capture = true
+enable_wk_web_extensions = false
 
 [gtk]
 use_gtk4 = false
