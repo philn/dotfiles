@@ -18,6 +18,9 @@ export SCCACHE_NUM_CPUS=45
 # New in 0.7.0: Disable, looks a bit buggy.
 export SCCACHE_DIRECT=false
 
+# New in 0.9.0: Abstract Unix socket server.
+export SCCACHE_SERVER_UDS=\\x00sccache.sock
+
 export NUMBER_OF_PROCESSORS=$(expr $(nproc --all) / 2)
 
 export SCCACHE_REDIS={{ pass "shell/webkit-redis" }}
