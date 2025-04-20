@@ -1,3 +1,4 @@
 .envrc
 *.~undo-tree~
 *~
+/local-projects/
