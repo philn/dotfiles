@@ -735,61 +735,139 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(catppuccin-theme add-node-modules-path import-js grizzl rjsx-mode tern helm-gtags helm helm-core godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc ggtags flycheck-golangci-lint counsel-gtags company-go go-mode pug-mode doom-themes company treemacs modus-themes all-the-icons evil zenburn-theme zen-and-art-theme yasnippet-snippets yapfify yaml-mode ws-butler writeroom-mode winum white-sand-theme which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired toxi-theme toml-mode toc-org tide tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit systemd symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection string-edit sphinx-doc spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle slim-mode seti-theme seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode ron-mode robe reverse-theme restart-emacs rebecca-theme rbenv rake rainbow-delimiters railscasts-theme racer quickrun pytest pyenv-mode py-isort purple-haze-theme protobuf-mode professional-theme prettier-js popwin poetry planet-theme pippel pipenv pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme password-generator paradox overseer organic-green-theme org-superstar open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme npm-mode nose nodejs-repl noctilux-theme naquadah-theme nameless mustang-theme multi-line monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme mmm-mode minitest minimal-theme meson-mode material-theme markdown-toc majapahit-theme magit-section madhat2r-theme macrostep lush-theme lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-ivy lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme kaolin-themes json-navigator json-mode js2-refactor js-doc jbeans-theme jazz-theme ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ivy-avy ir-black-theme insert-shebang inkpot-theme indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-make hc-zenburn-theme gruvbox-theme gruber-darker-theme grip-mode graphviz-dot-mode grandshell-theme goto-chg gotham-theme google-translate google-c-style golden-ratio gitignore-templates gitignore-mode github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ gist gh-md gandalf-theme fuzzy forge font-lock+ flycheck-ycmd flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-package flycheck-elsa flycheck-bashate flx-ido flatui-theme flatland-theme fish-mode farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-collection evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme emr emmet-mode elisp-slime-nav editorconfig dumb-jump drag-stuff dracula-theme dotenv-mode django-theme disaster dired-quick-sort diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dap-mode dakrone-theme cython-mode cyberpunk-theme cpp-auto-include counsel-projectile counsel-css company-ycmd company-web company-shell company-rtags company-c-headers company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clean-aindent-mode chruby chocolate-theme cherry-blossom-theme cfrs centered-cursor-mode ccls cargo busybee-theme bundler bubbleberry-theme browse-at-remote blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile async apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-window ace-link ac-ispell))
+   '(catppuccin-theme add-node-modules-path import-js grizzl rjsx-mode tern
+                      helm-gtags helm helm-core godoctor go-tag go-rename
+                      go-impl go-guru go-gen-test go-fill-struct go-eldoc ggtags
+                      flycheck-golangci-lint counsel-gtags company-go go-mode
+                      pug-mode doom-themes company treemacs modus-themes
+                      all-the-icons evil zenburn-theme zen-and-art-theme
+                      yasnippet-snippets yapfify yaml-mode ws-butler
+                      writeroom-mode winum white-sand-theme which-key wgrep
+                      web-mode web-beautify volatile-highlights vi-tilde-fringe
+                      uuidgen use-package undo-tree underwater-theme
+                      ujelly-theme twilight-theme twilight-bright-theme
+                      twilight-anti-bright-theme treemacs-projectile
+                      treemacs-persp treemacs-magit treemacs-icons-dired
+                      toxi-theme toml-mode toc-org tide tao-theme
+                      tangotango-theme tango-plus-theme tango-2-theme tagedit
+                      systemd symon symbol-overlay sunny-day-theme
+                      sublime-themes subatomic256-theme subatomic-theme
+                      string-inflection string-edit sphinx-doc
+                      spaceline-all-the-icons spacegray-theme soothe-theme
+                      solarized-theme soft-stone-theme soft-morning-theme
+                      soft-charcoal-theme smyx-theme smex smeargle slim-mode
+                      seti-theme seeing-is-believing scss-mode sass-mode rvm
+                      ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax
+                      rubocopfmt rubocop rspec-mode ron-mode robe reverse-theme
+                      restart-emacs rebecca-theme rbenv rake rainbow-delimiters
+                      railscasts-theme racer quickrun pytest pyenv-mode py-isort
+                      purple-haze-theme protobuf-mode professional-theme
+                      prettier-js popwin poetry planet-theme pippel pipenv
+                      pip-requirements phoenix-dark-pink-theme
+                      phoenix-dark-mono-theme password-generator paradox
+                      overseer organic-green-theme org-superstar open-junk-file
+                      omtose-phellack-theme oldlace-theme occidental-theme
+                      obsidian-theme npm-mode nose nodejs-repl noctilux-theme
+                      naquadah-theme nameless mustang-theme multi-line
+                      monokai-theme monochrome-theme molokai-theme moe-theme
+                      modus-vivendi-theme modus-operandi-theme mmm-mode minitest
+                      minimal-theme meson-mode material-theme markdown-toc
+                      majapahit-theme magit-section madhat2r-theme macrostep
+                      lush-theme lsp-ui lsp-python-ms lsp-pyright lsp-origami
+                      lsp-ivy lorem-ipsum livid-mode live-py-mode link-hint
+                      light-soap-theme kaolin-themes json-navigator json-mode
+                      js2-refactor js-doc jbeans-theme jazz-theme ivy-yasnippet
+                      ivy-xref ivy-rtags ivy-purpose ivy-hydra ivy-avy
+                      ir-black-theme insert-shebang inkpot-theme indent-guide
+                      importmagic impatient-mode hybrid-mode hungry-delete
+                      hl-todo highlight-parentheses highlight-numbers
+                      highlight-indentation heroku-theme hemisu-theme helm-make
+                      hc-zenburn-theme gruvbox-theme gruber-darker-theme
+                      grip-mode graphviz-dot-mode grandshell-theme goto-chg
+                      gotham-theme google-translate google-c-style golden-ratio
+                      gitignore-templates gitignore-mode github-search
+                      github-clone gitconfig-mode gitattributes-mode
+                      git-timemachine git-messenger git-link git-gutter-fringe+
+                      gist gh-md gandalf-theme fuzzy forge font-lock+
+                      flycheck-ycmd flycheck-rust flycheck-rtags
+                      flycheck-pos-tip flycheck-package flycheck-elsa
+                      flycheck-bashate flx-ido flatui-theme flatland-theme
+                      fish-mode farmhouse-theme fancy-battery eziam-theme
+                      eyebrowse expand-region exotica-theme evil-visualstar
+                      evil-visual-mark-mode evil-unimpaired evil-tutor
+                      evil-textobj-line evil-surround evil-numbers
+                      evil-nerd-commenter evil-mc evil-matchit evil-lisp-state
+                      evil-lion evil-indent-plus evil-iedit-state evil-goggles
+                      evil-exchange evil-escape evil-ediff evil-collection
+                      evil-cleverparens evil-args evil-anzu eval-sexp-fu
+                      espresso-theme emr emmet-mode elisp-slime-nav editorconfig
+                      dumb-jump drag-stuff dracula-theme dotenv-mode
+                      django-theme disaster dired-quick-sort diminish devdocs
+                      define-word darktooth-theme darkokai-theme darkmine-theme
+                      darkburn-theme dap-mode dakrone-theme cython-mode
+                      cyberpunk-theme cpp-auto-include counsel-projectile
+                      counsel-css company-ycmd company-web company-shell
+                      company-rtags company-c-headers company-anaconda
+                      column-enforce-mode color-theme-sanityinc-tomorrow
+                      color-theme-sanityinc-solarized cmake-mode clues-theme
+                      clean-aindent-mode chruby chocolate-theme
+                      cherry-blossom-theme cfrs centered-cursor-mode ccls cargo
+                      busybee-theme bundler bubbleberry-theme browse-at-remote
+                      blacken birds-of-paradise-plus-theme badwolf-theme
+                      auto-yasnippet auto-highlight-symbol auto-compile async
+                      apropospriate-theme anti-zenburn-theme ample-zen-theme
+                      ample-theme alect-themes aggressive-indent afternoon-theme
+                      ace-window ace-link ac-ispell))
  '(safe-local-variable-values
-   '((lsp-semantic-tokens-apply-modifiers)
+   '((rustic-indent-offset . 4) (lsp-semantic-tokens-apply-modifiers)
      (lsp-semantic-tokens-enable . t)
      (git-commit-style-convention-checks
       (remove 'non-empty-second-line git-commit-style-convention-checks))
-     (lsp-clients-clangd-args "--enable-config" "--compile-commands-dir=/home/phil/gstreamer/build/")
-     (c++-mode
-      (c-c++-backend quote lsp-clangd))
+     (lsp-clients-clangd-args "--enable-config"
+                              "--compile-commands-dir=/home/phil/gstreamer/build/")
+     (c++-mode (c-c++-backend quote lsp-clangd))
      (c-c++-backend quote lsp-clangd)
      (lsp-clients-clangd-executable . "webkit-clangd")
      (lsp-clients-clangd-args "--enable-config" "--gtk")
-     (c++-mode
-      (c-c++-backend . lsp-clangd))
+     (c++-mode (c-c++-backend . lsp-clangd))
      (lsp-clients-clangd-args "-enable-config" "--gtk")
-     (lsp-clients-clangd-executable . "/home/phil/WebKit/Tools/flatpak/webkit-clangd")
+     (lsp-clients-clangd-executable
+      . "/home/phil/WebKit/Tools/flatpak/webkit-clangd")
      (with-eval-after-load 'lsp-mode
        (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]build\\'"))
-     (ccls-initialization-options :compilationDatabaseDirectory "/var/home/phil/gstreamer/build/" :cache
+     (ccls-initialization-options :compilationDatabaseDirectory
+                                  "/var/home/phil/gstreamer/build/" :cache
                                   (:directory ".ccls-cache"))
-     (eval ignore-errors
-           (require 'whitespace)
-           (whitespace-mode 1))
-     (whitespace-line-column . 79)
-     (whitespace-style face indentation)
-     (eval progn
-           (c-set-offset 'case-label '0)
-           (c-set-offset 'innamespace '0)
+     (eval ignore-errors (require 'whitespace) (whitespace-mode 1))
+     (whitespace-line-column . 79) (whitespace-style face indentation)
+     (eval progn (c-set-offset 'case-label '0) (c-set-offset 'innamespace '0)
            (c-set-offset 'inline-open '0))
-     (ccls-initialization-options :compilationDatabaseDirectory "/var/home/phil/dev/obs-studio/build/" :cache
+     (ccls-initialization-options :compilationDatabaseDirectory
+                                  "/var/home/phil/dev/obs-studio/build/" :cache
                                   (:directory ".ccls-cache"))
      (lsp-clients-clangd-executable . "gst-clangd")
      (clangd-executable . "gst-clangd")
-     (ccls-initialization-options :compilationDatabaseDirectory "/var/home/phil/gst-build/build/" :cache
+     (ccls-initialization-options :compilationDatabaseDirectory
+                                  "/var/home/phil/gst-build/build/" :cache
                                   (:directory ".ccls-cache"))
-     (ccls-initialization-options :compilationDatabaseDirectory "/home/phil/gst-build/build/" :cache
+     (ccls-initialization-options :compilationDatabaseDirectory
+                                  "/home/phil/gst-build/build/" :cache
                                   (:directory ".ccls-cache"))
-     (ccls-initialization-options :compilationDatabaseDirectory "/home/phil/dev/obs-studio/build/" :cache
+     (ccls-initialization-options :compilationDatabaseDirectory
+                                  "/home/phil/dev/obs-studio/build/" :cache
                                   (:directory ".ccls-cache"))
-     (ccls-executable . "gst-ccls")
-     (ccls-executable . "ccls.sh")
+     (ccls-executable . "gst-ccls") (ccls-executable . "ccls.sh")
      (projectile-project-name . "OBS")
-     (ccls-initialization-options :compilationDatabaseDirectory "/app/webkit/WebKitBuild/Release" :cache
+     (ccls-initialization-options :compilationDatabaseDirectory
+                                  "/app/webkit/WebKitBuild/Release" :cache
                                   (:directory ".ccls-cache"))
      (projectile-project-name . "GStreamer")
      (lsp-ui-peek-find-references nil
                                   (list :folders
-                                        (vector
-                                         (projectile-project-root))))
-     (projectile-project-name . "WebKit")
-     (ccls-executable . "webkit-ccls")
-     (typescript-backend . tide)
-     (typescript-backend . lsp)
-     (javascript-backend . tide)
-     (javascript-backend . tern)
+                                        (vector (projectile-project-root))))
+     (projectile-project-name . "WebKit") (ccls-executable . "webkit-ccls")
+     (typescript-backend . tide) (typescript-backend . lsp)
+     (javascript-backend . tide) (javascript-backend . tern)
      (javascript-backend . lsp)))
  '(warning-suppress-log-types '((mule) (mule)))
  '(warning-suppress-types '((use-package) (mule))))
