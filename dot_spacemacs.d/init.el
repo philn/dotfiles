@@ -610,7 +610,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq lsp-disabled-clients '(rls bash-ls eslint mspyls pyright ts-ls jsts-ls graphql-lsp vue-semantic-server))
   (setq lsp-rust-server 'rust-analyzer)
   (setq lsp-lens-enable nil)
-  (setq-default lsp-rust-analyzer-server-command ("/home/phil/bin/rust-analyzer.sh"))
 
   (require 'ansi-color)
   (defun display-ansi-colors ()
@@ -645,7 +644,9 @@ before packages are loaded."
   (catppuccin-reload)
 
   (setq rustic-format-on-save t)
-  (setq rust-rustfmt-bin "/home/phil/.cargo-home/bin/rustfmt")
+  (setq rustic-rustfmt-bin "/home/phil/.cargo-home/bin/rustfmt")
+  (setq rustic-rustfmt-args "--edition 2021")
+  (setq rustic-analyzer-command '("/home/phil/bin/rust-analyzer.sh"))
 
 
   (add-to-list 'auto-mode-alist '("\\.bst\\'" . yaml-mode))
