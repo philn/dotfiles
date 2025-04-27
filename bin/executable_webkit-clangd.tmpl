@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
 VERSION={{- .chezmoi.osRelease.versionID }}
-flatpak-spawn --host podman start wk-dev-f${VERSION}
-exec flatpak-spawn --host podman exec -e WEBKIT_HOME=$HOME/WebKit -i -u phil wk-dev-f${VERSION} webkit-clangd --enable-config --gtk --clang-tidy "$@"
+podman start wk-dev-f${VERSION}
+exec podman exec -e WEBKIT_HOME=$HOME/WebKit -i -u phil wk-dev-f${VERSION} webkit-clangd --enable-config --gtk --clang-tidy "$@"
 

@@ -1,6 +1,5 @@
 #!/bin/bash
 set -x
 VERSION={{- .chezmoi.osRelease.versionID }}
-flatpak-spawn --host podman start gst-dev-f${VERSION}
-exec flatpak-spawn --host podman exec -i -u phil gst-dev-f${VERSION} clangd "$@"
-
+podman start gst-dev-f${VERSION}
+exec podman exec -i -u phil gst-dev-f${VERSION} clangd "$@"
