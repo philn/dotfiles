@@ -1,4 +1,4 @@
 #!/bin/sh
 VERSION={{- .chezmoi.osRelease.versionID }}
-flatpak-spawn --host podman start fedora-toolbox-${VERSION}
-exec flatpak-spawn --host podman exec -i -u phil fedora-toolbox-${VERSION} /home/phil/.cargo-home/bin/rust-analyzer "$@"
+podman start fedora-toolbox-${VERSION}
+exec podman exec -i -u phil fedora-toolbox-${VERSION} /home/phil/.cargo-home/bin/rust-analyzer "$@"
