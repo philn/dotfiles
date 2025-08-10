@@ -1,0 +1,4 @@
+#!/bin/sh
+VERSION={{- .chezmoi.osRelease.versionID }}
+podman start gst-dev-f${VERSION}
+exec podman exec -e PATH=/usr/local/cargo/bin:$PATH -i -u phil gst-dev-f${VERSION} /usr/local/bin/rust-analyzer "$@"
