@@ -692,6 +692,7 @@ before packages are loaded."
                (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]build\\'")
                )
              (rustic-analyzer-command . "gst-rust-analyzer")
+             (gnu-indent-program . "/home/phil/bin/gst-indent")
              ))
      ))
 
