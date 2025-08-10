@@ -102,6 +102,7 @@ This function should only modify configuration layer settings."
                                       (pinentry :defer nil
                                                 :straight t
                                                 :config (pinentry-start))
+                                      gnu-indent
                                       catppuccin-theme)
 
    ;; A list of packages that cannot be updated.
