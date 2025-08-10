@@ -11,6 +11,7 @@ use_spiel = true
 use_flite = false
 use_skia_opentype_svg = false
 enable_asserts = true
+enable_webxr = false
 
 [gtk]
 use_gtk4 = true
