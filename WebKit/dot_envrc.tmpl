@@ -7,12 +7,8 @@ export LDFLAGS=-fuse-ld=mold
 
 export WEBKIT_HOME=$HOME/WebKit
 
-if [[ -z "$container" ]]; then
-   echo "Running from Buildstream SDK"
-else
+if [ -e /sccache/sccache.toml ]; then
    export SCCACHE_CONF=/sccache/sccache.toml
-   # https://github.com/mozilla/sccache/issues/1838
-   # export RUSTC_WRAPPER=/usr/local/cargo/bin/sccache
 fi
 
 export WEBKIT_USE_SCCACHE=1
