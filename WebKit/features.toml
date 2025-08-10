@@ -10,6 +10,7 @@ enable_wk_web_extensions = false
 use_spiel = true
 use_flite = false
 use_skia_opentype_svg = false
+enable_asserts = true
 
 [gtk]
 use_gtk4 = true
