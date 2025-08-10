@@ -72,8 +72,7 @@ child = "!bash -c 'git log --format=%H --reverse --ancestry-path ${1:-HEAD}..${2
 	smtpserverport = 465
 	smtpencryption = ssl
 	smtpuser = pnormand
-[credential]
-helper = /var/home/phil/bin/git-credential-libsecret
+
 [gpg]
 	program = gpg2
 [pull]
