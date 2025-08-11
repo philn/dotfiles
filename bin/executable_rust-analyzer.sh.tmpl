@@ -1,0 +1,4 @@
+#!/bin/sh
+VERSION={{- .chezmoi.osRelease.versionID }}
+podman start fedora-toolbox-${VERSION}
+exec podman exec -i -u phil fedora-toolbox-${VERSION} /home/phil/.cargo-home/bin/rust-analyzer "$@"
