@@ -692,7 +692,7 @@ before packages are loaded."
              (with-eval-after-load 'lsp-mode
                (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]build\\'")
                )
-             (rustic-analyzer-command . "gst-rust-analyzer")
+             (lsp-rust-analyzer-server-command . ("/home/phil/bin/gst-rust-analyzer"))
              (gnu-indent-program . "/home/phil/bin/gst-indent")
              ))
      ))
