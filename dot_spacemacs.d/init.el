@@ -647,6 +647,9 @@ before packages are loaded."
   (setq rustic-rustfmt-args "--edition 2021")
   (setq rustic-analyzer-command '("/home/phil/bin/rust-analyzer.sh"))
 
+  (put 'lsp-rust-analyzer-server-command 'safe-local-variable (lambda (x) t))
+  (put 'gnu-indent-program 'safe-local-variable (lambda (x) t))
+  (put 'rustic-analyzer-command 'safe-local-variable (lambda (x) t))
 
   (add-to-list 'auto-mode-alist '("\\.bst\\'" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
