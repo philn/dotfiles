@@ -273,8 +273,7 @@ It should only modify the values of Spacemacs settings."
                 ;; List of themes, the first of the list is loaded when spacemacs starts.
                 ;; Press `SPC T n' to cycle to the next theme in the list (works great
                 ;; with 2 themes variants, one dark and one light)
-                dotspacemacs-themes '(spacemacs-dark
-                                      spacemacs-light)
+                dotspacemacs-themes '(catppuccin)
 
                 ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
                 ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -596,6 +595,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
                 )
   (setq-default explicit-shell-file-name "/bin/bash")
 
+  (setq catppuccin-flavor 'macchiato)
+
   (customize-set-variable
    'tramp-ssh-controlmaster-options
    (concat
@@ -639,10 +640,7 @@ before packages are loaded."
     ;; disable inline previews
     (delq 'company-preview-if-just-one-frontend company-frontends))
 
-  (require 'doom-themes)
-  (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'macchiato) ;; or 'latte, 'frappe, or 'mocha
-  (catppuccin-reload)
+  ;;(require 'doom-themes)
 
   (setq rustic-format-on-save t)
   (setq rustic-rustfmt-bin "/home/phil/.cargo-home/bin/rustfmt")
