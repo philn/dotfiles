@@ -31,3 +31,7 @@ export LSAN_OPTIONS=suppressions=lsan-suppressions.txt
 
 export WPE_BROWSER=cog
 export NINJA_STATUS="%w / %W (%f/%t) %P "
+
+if [ -e /run/host/run/dbus/system_bus_socket ]; then
+   export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/host/run/dbus/system_bus_socket
+fi
