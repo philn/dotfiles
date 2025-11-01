@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+VERSION={{- .chezmoi.osRelease.versionID }}
+podman start wk-dev-f${VERSION}
+#  -e WEBKIT_OUTPUTDIR=$HOME/WebKit/local-build-gtk/WebKitBuild
+exec podman exec -e WEBKIT_HOME=$HOME/WebKit -i -u phil wk-dev-f${VERSION} webkit-sourcekit-lsp --gtk "$@"

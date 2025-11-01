@@ -62,6 +62,10 @@ This function should only modify configuration layer settings."
             ;;c-c++-lsp-enable-semantic-highlight 'rainbow
             )
      javascript
+     (swift :variables
+            swift-backend 'lsp
+            swift-lsp-executable-path "webkit-sourcekit-lsp"
+            )
 
      ;; better-defaults
      emacs-lisp
