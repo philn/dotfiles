@@ -1,9 +1,3 @@
 [common]
 background-index = false
 project-root = "{{ .chezmoi.homeDir }}/WebKit"
-
-[gtk]
-remote-index-address = "{{ pass "shell/webkit-clangd-gtk-server" }}"
-
-[wpe]
-remote-index-address = "{{ pass "shell/webkit-clangd-wpe-server" }}"
