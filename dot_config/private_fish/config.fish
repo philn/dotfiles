@@ -16,11 +16,6 @@ if status is-interactive
 
     bind \cl 'wipe --duration 1200; commandline -f repaint'
 
-    # Brew likely won't work in containers.
-    if not set -q container
-        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    end
-
     direnv hook fish | source
 
     fish_add_path ~/.local/bin/
