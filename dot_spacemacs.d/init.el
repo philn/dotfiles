@@ -648,7 +648,7 @@ before packages are loaded."
 
   (setq rustic-format-on-save t)
   (setq rustic-rustfmt-bin "/home/phil/.cargo-home/bin/rustfmt")
-  (setq rustic-rustfmt-args "--edition 2021")
+  (setq rustic-rustfmt-args "--edition 2024")
   (setq rustic-analyzer-command '("/home/phil/bin/rust-analyzer.sh"))
 
   (put 'lsp-rust-analyzer-server-command 'safe-local-variable (lambda (x) t))
