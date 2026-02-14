@@ -64,7 +64,7 @@ This function should only modify configuration layer settings."
      javascript
      (swift :variables
             swift-backend 'lsp
-            swift-lsp-executable-path "webkit-sourcekit-lsp"
+            swift-lsp-executable-path "/home/phil/bin/webkit-sourcekit-lsp"
             )
 
      ;; better-defaults
@@ -828,7 +828,13 @@ This function is called at the very end of Spacemacs initialization."
                         ample-theme alect-themes aggressive-indent afternoon-theme
                         ace-window ace-link ac-ispell))
    '(safe-local-variable-values
-     '((rustic-indent-offset . 4) (lsp-semantic-tokens-apply-modifiers)
+     '((lsp-sourcekit-executable . "webkit-sourcekit-lsp")
+       (with-eval-after-load 'lsp-mode
+         (setq lsp-sourcekit-executable "webkit-sourcekit-lsp"))
+       (with-eval-after-load 'lsp-mode
+         (setq swift-lsp-executable-path "webkit-sourcekit-lsp"))
+       (swift-lsp-executable-path . "webkit-sourcekit-lsp")
+       (rustic-indent-offset . 4) (lsp-semantic-tokens-apply-modifiers)
        (lsp-semantic-tokens-enable . t)
        (git-commit-style-convention-checks
         (remove 'non-empty-second-line git-commit-style-convention-checks))
