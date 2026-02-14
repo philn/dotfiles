@@ -5,6 +5,8 @@ export CC=clang
 export CXX=clang++
 export LDFLAGS=-fuse-ld=mold
 
+export PATH="$PATH:/usr/local/cargo/bin/"
+
 export WEBKIT_HOME=$HOME/WebKit
 
 if [ -e /sccache/sccache.toml ]; then
