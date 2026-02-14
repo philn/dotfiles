@@ -25,7 +25,7 @@
 
 ## address of the sync server
 # sync_address = "https://api.atuin.sh"
-sync_address = "https://base-art.net:6379"
+sync_address = "https://atuin.base-art.net"
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy
